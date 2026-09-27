@@ -19,19 +19,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Simulated Telemetry Clock (UTC Session Time)
+  // 3. New York Session Clock (Eastern Time)
   const sessionClock = document.getElementById('utc-clock');
   if (sessionClock) {
     const updateTime = () => {
       const now = new Date();
-      const utcStr = now.toISOString().substring(11, 19) + ' UTC';
-      sessionClock.textContent = utcStr;
+      const nyTime = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(now);
+
+      sessionClock.textContent = `${nyTime} ET`;
     };
     updateTime();
     setInterval(updateTime, 1000);
   }
 
-  // 4. Subtle Interactive Price Fluctuations for Terminal Preview
+  // 4. Interactive Price Fluctuations for Terminal Preview
   const esPrice = document.getElementById('tick-es');
   const nqPrice = document.getElementById('tick-nq');
   if (esPrice && nqPrice) {
