@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Caldamere | Markets move. Standards hold.</title>
-  <meta name="description" content="Caldamere develops structured market competitions and practical projects for financial market participants.">
+  <meta name="description" content="Structured market competitions and practical projects for financial market participants.">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -20,6 +20,10 @@
         <li><a href="/company.html">Company</a></li>
       </ul>
       <div class="nav-cta">
+        <div class="telemetry-tag">
+          <span class="pulse-dot"></span>
+          <span id="utc-clock">00:00:00 UTC</span>
+        </div>
         <a href="/series/tournaments.html" class="btn btn-primary">View tournaments</a>
       </div>
       <button class="menu-btn" aria-label="Toggle navigation">
@@ -41,56 +45,148 @@
   <main>
     <section class="hero">
       <div class="container">
-        <p class="hero-label">Caldamere</p>
+        <div class="hero-label">
+          <span>●</span> Caldamere Protocol & Infrastructure
+        </div>
         <h1>Markets move.<br>Standards hold.</h1>
         <p>Caldamere develops structured market competitions and practical projects for people who engage with financial markets. The Caldamere Series is our first public project.</p>
+        
         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
           <a href="/series/" class="btn btn-primary">Explore the Series</a>
-          <a href="/series/tournaments.html" class="btn btn-secondary">View upcoming tournaments</a>
+          <a href="/series/tournaments.html" class="btn btn-secondary">Upcoming Tournaments</a>
         </div>
+
+        <!-- Quantitative Terminal / Interface Mockup -->
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+            </div>
+            <div>CALDAMERE SIMULATED ENGINE // ENVIRONMENT SANDBOX</div>
+            <div style="color: var(--accent-green); font-size: 0.7rem;">READY FOR DEPLOYMENT</div>
+          </div>
+          
+          <div class="terminal-body">
+            <div>
+              <div class="market-strip">
+                <div class="ticker-item">
+                  <span style="color: var(--text-muted);">ES_F</span>
+                  <span id="tick-es" class="price-up">5742.25</span>
+                </div>
+                <div class="ticker-item">
+                  <span style="color: var(--text-muted);">NQ_F</span>
+                  <span id="tick-nq" class="price-up">20148.50</span>
+                </div>
+                <div class="ticker-item">
+                  <span style="color: var(--text-muted);">CL_F</span>
+                  <span>71.14</span>
+                </div>
+                <div class="ticker-item">
+                  <span style="color: var(--text-muted);">GC_F</span>
+                  <span class="price-up">2674.80</span>
+                </div>
+              </div>
+
+              <!-- Vector Chart Preview -->
+              <svg class="chart-sim-svg" viewBox="0 0 500 150">
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#d4a373" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#d4a373" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M 0 110 Q 50 130 100 80 T 200 70 T 300 40 T 400 65 T 500 20 L 500 150 L 0 150 Z" fill="url(#chartGradient)"></path>
+                <path d="M 0 110 Q 50 130 100 80 T 200 70 T 300 40 T 400 65 T 500 20" stroke="#d4a373" stroke-width="2.2" fill="none"></path>
+                <line x1="0" y1="40" x2="500" y2="40" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4"/>
+                <line x1="0" y1="90" x2="500" y2="90" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4"/>
+              </svg>
+            </div>
+
+            <!-- Terminal Risk Telemetry -->
+            <div style="background: rgba(255,255,255,0.02); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">Engine Parameter</div>
+                <div style="font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700; color: var(--accent-gold); margin-top: 0.2rem;">Uniform Execution</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">Max Drawdown Hard Stop</div>
+                <div style="font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-top: 0.2rem;">Enforced (Trailing)</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">Audited Metric</div>
+                <div style="font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700; color: var(--accent-green); margin-top: 0.2rem;">Sharpe & Sortino Ratios</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics Strip -->
+        <div class="metrics-strip">
+          <div>
+            <div class="metric-val">$0</div>
+            <div class="metric-lbl">Capital Risk (100% Simulated)</div>
+          </div>
+          <div>
+            <div class="metric-val">100%</div>
+            <div class="metric-lbl">Audited Score Transparency</div>
+          </div>
+          <div>
+            <div class="metric-val">Fixed</div>
+            <div class="metric-lbl">Pre-published Windows</div>
+          </div>
+          <div>
+            <div class="metric-val">Tick</div>
+            <div class="metric-lbl">Realistic Order Fill Latency</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <!-- Current Work Section -->
     <section class="section">
       <div class="container">
-        <p class="section-label">Current work</p>
+        <p class="section-label">Current Work</p>
         <h2 class="section-title">Focused projects for market participants.</h2>
         <div class="grid-2">
           <div class="card">
             <span class="badge">Available</span>
             <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">The Caldamere Series</h3>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Free, scheduled simulated-trading tournaments with defined event windows, published formats, and clear participation rules.</p>
+            <p style="color: var(--text-muted); margin-bottom: 1.75rem;">Free, scheduled simulated-trading tournaments with defined event windows, published formats, and clear participation rules.</p>
             <a href="/series/" class="btn btn-secondary">Explore the Series &rarr;</a>
           </div>
           <div class="card">
             <span class="badge badge-dim">In development</span>
             <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Trading Journal</h3>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">A Caldamere trading journal is in development. Product details will be published when it is ready for public use.</p>
+            <p style="color: var(--text-muted); margin-bottom: 1.75rem;">A quantitative trade logging and structural execution journal built for algorithmic and discretionary traders seeking continuous execution telemetry.</p>
             <a href="/what-we-do.html" class="btn btn-secondary">View current work &rarr;</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Framework Section -->
     <section class="section">
       <div class="container">
-        <p class="section-label">Structure</p>
+        <p class="section-label">Institutional Precision</p>
         <h2 class="section-title">A clear framework for every event.</h2>
         <ol class="step-list">
           <li class="step-item">
-            <div class="step-no">01</div>
-            <h3>Scheduled</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Every tournament has a published registration period and competition window.</p>
+            <div class="step-no">01 / SCHEDULED</div>
+            <h3>Pre-defined Windows</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Every tournament has a published registration period and competition window. No continuous survivorship churn.</p>
           </li>
           <li class="step-item">
-            <div class="step-no">02</div>
-            <h3>Simulated</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Competition orders do not execute through a live brokerage account and do not use customer funds.</p>
+            <div class="step-no">02 / SIMULATED</div>
+            <h3>Zero Capital Risk</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Competition orders execute exclusively through simulated market environments and never risk participant capital.</p>
           </li>
           <li class="step-item">
-            <div class="step-no">03</div>
-            <h3>Defined</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Eligible instruments, data conditions, scoring, and rules are stated for each tournament.</p>
+            <div class="step-no">03 / DEFINED</div>
+            <h3>Standardized Rules</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Eligible instruments, data conditions, scoring metrics, and risk limits are locked and transparent for every participant.</p>
           </li>
         </ol>
       </div>
@@ -100,7 +196,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="disclosure-strip">
-        <strong>Notice:</strong> The Caldamere Series uses simulated trading. Competition orders do not execute through a live brokerage account, and no customer funds are deposited or traded through the competition interface.
+        <strong>Regulatory Notice:</strong> The Caldamere Series uses simulated trading. Competition orders do not execute through a live brokerage account, and no customer funds are deposited or traded through the competition interface. CFTC Rule 4.41 hypothetical performance disclosures apply.
       </div>
       <div class="footer-nav">
         <div>
