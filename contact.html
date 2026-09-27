@@ -4,12 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Caldamere</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-container">
-      <a href="/" class="brand"><span class="brand-dot"></span> Caldamere</a>
+      <a href="/" class="brand">
+        <img src="/images/caldamere-with-c.png" alt="Caldamere" class="brand-logo-nav">
+      </a>
       <ul class="nav-list">
         <li><a href="/series/">Series</a></li>
         <li><a href="/what-we-do.html">What we do</a></li>
@@ -18,15 +22,18 @@
       <div class="nav-cta">
         <a href="/series/tournaments.html" class="btn btn-primary">View tournaments</a>
       </div>
+      <button class="menu-btn" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <p class="hero-label">Contact</p>
-        <h1>Get in touch.</h1>
-        <p>Inquiries regarding series operations and Caldamere projects.</p>
+        <div class="hero-label">Inquiries</div>
+        <h1>Contact Caldamere.</h1>
+        <p>Direct inquiries regarding series participation, corporate partnerships, and technical infrastructure.</p>
       </div>
     </section>
 
@@ -36,22 +43,61 @@
           <form action="#" method="POST">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
+              <input type="text" id="name" name="name" placeholder="First and last name" required>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+              <label for="email">Corporate or Personal Email</label>
+              <input type="email" id="email" name="email" placeholder="name@domain.com" required>
             </div>
             <div class="form-group">
               <label for="msg">Message</label>
-              <textarea id="msg" name="message" rows="5" required></textarea>
+              <textarea id="msg" name="message" rows="5" placeholder="Specify your inquiry..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send message</button>
+            <button type="submit" class="btn btn-primary">Transmit Message</button>
           </form>
         </div>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <div>
+          <div style="margin-bottom: 1.25rem;">
+            <img src="/images/caldameregroup.png" alt="Caldamere Group" class="brand-logo-footer">
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 320px;">Caldamere develops structured market competitions and practical projects for people who engage with financial markets.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Series</h4>
+          <ul>
+            <li><a href="/series/">Overview</a></li>
+            <li><a href="/series/tournaments.html">Tournaments</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/what-we-do.html">What we do</a></li>
+            <li><a href="/company.html">Company</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/legal/disclosures.html">Disclosures</a></li>
+            <li><a href="/legal/privacy.html">Privacy</a></li>
+            <li><a href="/legal/terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Caldamere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
   <script src="/js/main.js"></script>
 </body>
 </html>

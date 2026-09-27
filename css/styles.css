@@ -69,6 +69,31 @@ a {
   padding: 0 1.5rem;
 }
 
+/* ---------------- BRAND & LOGO DISPLAY ---------------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.brand:hover {
+  opacity: 0.85;
+}
+
+.brand-logo-nav {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  display: block;
+}
+
+.brand-logo-footer {
+  height: 32px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  display: block;
+}
+
 /* ---------------- HEADER ---------------- */
 .site-header {
   position: sticky;
@@ -84,28 +109,6 @@ a {
   align-items: center;
   justify-content: space-between;
   height: 72px;
-}
-
-.brand {
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.brand-dot {
-  width: 13px;
-  height: 13px;
-  border: 2px solid var(--accent-gold);
-  transform: rotate(45deg);
-  transition: var(--transition);
-}
-
-.brand:hover .brand-dot {
-  transform: rotate(135deg) scale(1.1);
-  background: var(--accent-gold);
 }
 
 .nav-list {
@@ -297,7 +300,7 @@ a {
   margin-bottom: 2.25rem;
 }
 
-/* ---------------- TERMINAL MOCKUP / TELEMETRY CARD ---------------- */
+/* ---------------- TERMINAL MOCKUP ---------------- */
 .terminal-card {
   background: #060c12;
   border: 1px solid var(--border-subtle);
@@ -355,9 +358,7 @@ a {
 }
 
 .price-up { color: var(--accent-green); }
-.price-down { color: var(--accent-red); }
 
-/* Mini chart lines (pure CSS SVG styling) */
 .chart-sim-svg {
   width: 100%;
   height: 180px;
@@ -366,7 +367,7 @@ a {
   fill: none;
 }
 
-/* ---------------- SECTIONS & GRIDS ---------------- */
+/* ---------------- SECTIONS & CARDS ---------------- */
 .section {
   padding: 5.5rem 0;
   border-bottom: 1px solid var(--border-subtle);
@@ -389,12 +390,6 @@ a {
 }
 
 .grid-2 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-.grid-3 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -462,7 +457,6 @@ a {
   border-radius: var(--radius-lg);
   padding: 2rem;
   transition: var(--transition);
-  position: relative;
 }
 
 .step-item:hover {
@@ -500,6 +494,68 @@ a {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-top: 0.25rem;
+}
+
+/* ---------------- TABLES ---------------- */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 1.1rem 1.25rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+th {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------------- FORMS ---------------- */
+.form-box {
+  max-width: 600px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-gold);
 }
 
 /* ---------------- FOOTER ---------------- */
@@ -563,12 +619,10 @@ a {
   font-size: 0.8rem;
 }
 
-/* Responsive */
 @media (min-width: 768px) {
   .nav-list, .nav-cta { display: flex; }
   .menu-btn { display: none; }
   .grid-2 { grid-template-columns: 1fr 1fr; }
-  .grid-3 { grid-template-columns: repeat(3, 1fr); }
   .step-list { grid-template-columns: repeat(3, 1fr); }
   .metrics-strip { grid-template-columns: repeat(4, 1fr); }
   .footer-nav { grid-template-columns: 2fr 1fr 1fr 1fr; }
