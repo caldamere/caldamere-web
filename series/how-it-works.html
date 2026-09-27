@@ -4,12 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How it works | Caldamere Series</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-container">
-      <a href="/" class="brand"><span class="brand-dot"></span> Caldamere</a>
+      <a href="/" class="brand" aria-label="Caldamere Home">
+        <img src="/images/caldamere-with-c.png" alt="Caldamere" class="brand-logo-nav">
+      </a>
       <ul class="nav-list">
         <li><a href="/series/">Overview</a></li>
         <li><a href="/series/tournaments.html">Tournaments</a></li>
@@ -18,15 +22,22 @@
         <li><a href="/series/faq.html">FAQ</a></li>
       </ul>
       <div class="nav-cta">
+        <div class="telemetry-tag">
+          <span class="pulse-dot"></span>
+          <span id="utc-clock">--:--:-- ET</span>
+        </div>
         <a href="/series/tournaments.html" class="btn btn-primary">View tournaments</a>
       </div>
+      <button class="menu-btn" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <p class="hero-label">Process</p>
+        <div class="hero-label">Architecture</div>
         <h1>How the Series works</h1>
         <p>A step-by-step overview of tournament enrollment and simulated competition windows.</p>
       </div>
@@ -36,24 +47,71 @@
       <div class="container">
         <ol class="step-list">
           <li class="step-item">
-            <div class="step-no">01</div>
+            <div class="step-no">STEP 01</div>
             <h3>Registration</h3>
-            <p style="color: var(--text-muted); margin-top: 0.5rem;">Join an open competition during the published window.</p>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+              Enroll during published enrollment periods. Launch events are free ($0 entry fee) and open to eligible market participants.
+            </p>
           </li>
           <li class="step-item">
-            <div class="step-no">02</div>
-            <h3>Access</h3>
-            <p style="color: var(--text-muted); margin-top: 0.5rem;">Enter the authenticated web dashboard when the event begins.</p>
+            <div class="step-no">STEP 02</div>
+            <h3>Sandbox Access</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+              When the event opens, authenticate into the Caldamere web environment to view market books, charts, and position metrics.
+            </p>
           </li>
           <li class="step-item">
-            <div class="step-no">03</div>
-            <h3>Execution</h3>
-            <p style="color: var(--text-muted); margin-top: 0.5rem;">Execute trades according to tournament rules and risk parameters.</p>
+            <div class="step-no">STEP 03</div>
+            <h3>Execution & Telemetry</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+              Execute trades within established risk limits. Your real-time performance is audited and calculated on the event leaderboard.
+            </p>
           </li>
         </ol>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <div>
+          <div style="margin-bottom: 1.25rem;">
+            <img src="/images/caldameregroup.png" alt="Caldamere Group" class="brand-logo-footer">
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 320px;">Caldamere develops structured market competitions and practical projects for people who engage with financial markets.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Series</h4>
+          <ul>
+            <li><a href="/series/">Overview</a></li>
+            <li><a href="/series/tournaments.html">Tournaments</a></li>
+            <li><a href="/series/how-it-works.html">How it works</a></li>
+            <li><a href="/series/rules.html">Rules</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/what-we-do.html">What we do</a></li>
+            <li><a href="/company.html">Company</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/legal/disclosures.html">Disclosures</a></li>
+            <li><a href="/legal/privacy.html">Privacy</a></li>
+            <li><a href="/legal/terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Caldamere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
   <script src="/js/main.js"></script>
 </body>
 </html>

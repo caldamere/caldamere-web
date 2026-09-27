@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rules Framework | Caldamere</title>
+  <title>Rules Framework | Caldamere Series</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-container">
-      <a href="/" class="brand"><span class="brand-dot"></span> Caldamere</a>
+      <a href="/" class="brand" aria-label="Caldamere Home">
+        <img src="/images/caldamere-with-c.png" alt="Caldamere" class="brand-logo-nav">
+      </a>
       <ul class="nav-list">
         <li><a href="/series/">Overview</a></li>
         <li><a href="/series/tournaments.html">Tournaments</a></li>
@@ -18,30 +22,103 @@
         <li><a href="/series/faq.html">FAQ</a></li>
       </ul>
       <div class="nav-cta">
+        <div class="telemetry-tag">
+          <span class="pulse-dot"></span>
+          <span id="utc-clock">--:--:-- ET</span>
+        </div>
         <a href="/series/tournaments.html" class="btn btn-primary">View tournaments</a>
       </div>
+      <button class="menu-btn" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <p class="hero-label">Rules Framework</p>
-        <h1>Rules and participation criteria.</h1>
-        <p>Published standards applied to every Caldamere tournament.</p>
+        <div class="hero-label">Competition Protocol</div>
+        <h1>Rules & Risk Standards</h1>
+        <p>Uniform parameters applied across all Caldamere tournament environments.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container" style="max-width: 800px;">
-        <h3 style="margin-bottom: 0.5rem;">1. Simulated Trading Environment</h3>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">All events utilize simulation. Orders do not interact with live markets, and no customer funds are handled.</p>
-
-        <h3 style="margin-bottom: 0.5rem;">2. Scoring & Metrics</h3>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Scoring formulas take into account cumulative returns alongside maximum drawdown thresholds.</p>
+      <div class="container" style="max-width: 820px;">
+        <ol class="step-list" style="grid-template-columns: 1fr;">
+          <li class="step-item">
+            <div class="step-no">RULE 01 // CAPITAL SIMULATION</div>
+            <h3>Zero Personal Risk</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+              Every participant receives an identical starting simulated cash allocation. No account funding or personal deposits are permitted.
+            </p>
+          </li>
+          <li class="step-item">
+            <div class="step-no">RULE 02 // DRAWDOWN RISK LIMITS</div>
+            <h3>Maximum Trailing Drawdown</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+              Each tournament specifies a hard trailing drawdown limit (typically 4% to 6%). Violating this threshold halts simulated execution privileges for the remainder of that event.
+            </p>
+          </li>
+          <li class="step-item">
+            <div class="step-no">RULE 03 // ELIGIBLE INSTRUMENTS</div>
+            <h3>Approved Contracts Only</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+              Trading is restricted to listed benchmark equity index futures (e.g., E-mini S&P 500, E-mini Nasdaq-100) and specified commodities during active market hours.
+            </p>
+          </li>
+          <li class="step-item">
+            <div class="step-no">RULE 04 // OBJECTIVE SCORING</div>
+            <h3>Risk-Adjusted Performance</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">
+              Leaderboard rankings balance total return alongside consistency metrics and maximum intraday exposure.
+            </p>
+          </li>
+        </ol>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <div>
+          <div style="margin-bottom: 1.25rem;">
+            <img src="/images/caldameregroup.png" alt="Caldamere Group" class="brand-logo-footer">
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 320px;">Caldamere develops structured market competitions and practical projects for people who engage with financial markets.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Series</h4>
+          <ul>
+            <li><a href="/series/">Overview</a></li>
+            <li><a href="/series/tournaments.html">Tournaments</a></li>
+            <li><a href="/series/how-it-works.html">How it works</a></li>
+            <li><a href="/series/rules.html">Rules</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/what-we-do.html">What we do</a></li>
+            <li><a href="/company.html">Company</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/legal/disclosures.html">Disclosures</a></li>
+            <li><a href="/legal/privacy.html">Privacy</a></li>
+            <li><a href="/legal/terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Caldamere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
   <script src="/js/main.js"></script>
 </body>
 </html>

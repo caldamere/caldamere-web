@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Drawer
+  // Mobile Menu Drawer
   const menuBtn = document.querySelector('.menu-btn');
   const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Active Route Highlighting
+  // Active Route Highlighting
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('.nav-list a, .mobile-menu a');
   navLinks.forEach(link => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. New York Session Clock (Eastern Time)
+  // 12-Hour New York Session Clock (Eastern Time)
   const sessionClock = document.getElementById('utc-clock');
   if (sessionClock) {
     const updateTime = () => {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-        hour12: false
+        hour12: true
       }).format(now);
 
       sessionClock.textContent = `${nyTime} ET`;
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTime, 1000);
   }
 
-  // 4. Interactive Price Fluctuations for Terminal Preview
+  // Simulated Telemetry Micro-fluctuations
   const esPrice = document.getElementById('tick-es');
   const nqPrice = document.getElementById('tick-nq');
   if (esPrice && nqPrice) {

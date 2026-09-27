@@ -3,33 +3,110 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy | Caldamere</title>
+  <title>Privacy Policy | Caldamere</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-container">
-      <a href="/" class="brand"><span class="brand-dot"></span> Caldamere</a>
+      <a href="/" class="brand" aria-label="Caldamere Home">
+        <img src="/images/caldamere-with-c.png" alt="Caldamere" class="brand-logo-nav">
+      </a>
       <ul class="nav-list">
         <li><a href="/series/">Series</a></li>
         <li><a href="/what-we-do.html">What we do</a></li>
         <li><a href="/company.html">Company</a></li>
       </ul>
       <div class="nav-cta">
+        <div class="telemetry-tag">
+          <span class="pulse-dot"></span>
+          <span id="utc-clock">--:--:-- ET</span>
+        </div>
         <a href="/series/tournaments.html" class="btn btn-primary">View tournaments</a>
       </div>
+      <button class="menu-btn" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container" style="max-width: 800px;">
-        <p class="hero-label">Legal</p>
+      <div class="container">
+        <div class="hero-label">Data Privacy Standards</div>
         <h1>Privacy Policy</h1>
-        <p style="color: var(--text-muted); margin-top: 1rem;">Caldamere collects only the minimal account details necessary to facilitate tournament participation and maintain system security.</p>
+        <p>How Caldamere collects, processes, and protects user information across our applications.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 820px;">
+        <div class="card" style="margin-bottom: 2rem;">
+          <h2 style="font-size: 1.35rem; margin-bottom: 1rem; color: var(--accent-gold);">1. Minimal Information Collection</h2>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            Caldamere collects strictly the essential data required to maintain account integrity, prevent duplicate entries in tournaments, and manage platform communications. This includes your name, verified email address, session authentication tokens, and tournament telemetry records (orders, simulated executions, and timestamps).
+          </p>
+        </div>
+
+        <div class="card" style="margin-bottom: 2rem;">
+          <h2 style="font-size: 1.35rem; margin-bottom: 1rem; color: var(--accent-gold);">2. Use of Telemetry & Analytics</h2>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            Simulated order activity is analyzed solely for leaderboard scoring, risk-limit enforcement, bot prevention, and service stability. Caldamere does not sell, license, or monetize participant personal data or execution records to third-party brokerages or advertisers.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2 style="font-size: 1.35rem; margin-bottom: 1rem; color: var(--accent-gold);">3. Infrastructure & Edge Security</h2>
+          <p style="color: var(--text-muted);">
+            All data in transit is encrypted using modern TLS cipher suites. Account states and session metadata are stored in isolated distributed databases configured with strict access-control policies.
+          </p>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <div>
+          <div style="margin-bottom: 1.25rem;">
+            <img src="/images/caldameregroup.png" alt="Caldamere Group" class="brand-logo-footer">
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 320px;">Caldamere develops structured market competitions and practical projects for people who engage with financial markets.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Series</h4>
+          <ul>
+            <li><a href="/series/">Overview</a></li>
+            <li><a href="/series/tournaments.html">Tournaments</a></li>
+            <li><a href="/series/how-it-works.html">How it works</a></li>
+            <li><a href="/series/rules.html">Rules</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/what-we-do.html">What we do</a></li>
+            <li><a href="/company.html">Company</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/legal/disclosures.html">Disclosures</a></li>
+            <li><a href="/legal/privacy.html">Privacy</a></li>
+            <li><a href="/legal/terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Caldamere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
   <script src="/js/main.js"></script>
 </body>
 </html>
