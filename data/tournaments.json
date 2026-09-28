@@ -1,0 +1,39 @@
+[
+  {
+    "id": "launch-alpha",
+    "name": "Series Launch Alpha",
+    "dates": "August 2026",
+    "instruments": "Equity Index Futures (ES / NQ)",
+    "entryFee": "$0 (Free)",
+    "status": "Completed",
+    "registrationUrl": ""
+  },
+  {
+    "id": "macro-pilot",
+    "name": "Treasuries & Commodity Pulse",
+    "dates": "October 2026",
+    "instruments": "Treasuries & Commodities (ZN / CL / GC)",
+    "entryFee": "$0 (Free)",
+    "status": "Scheduled",
+    "registrationUrl": ""
+  },
+    {
+        "id": "crypto-frenzy",
+        "name": "Crypto Frenzy",
+        "dates": "November 2026",
+        "instruments": "Cryptocurrency (BTC / ETH)",
+        "entryFee": "$0 (Free)",
+        "status": "Scheduled",
+        "registrationUrl": ""
+    },
+    {
+        "id": "forex-masters",
+        "name": "Forex Masters",
+        "dates": "December 2026",
+        "instruments": "USD Forex Pairs",
+        "entryFee": "$0 (Free)",
+        "status": "Scheduled",
+        "registrationUrl": ""
+    }
+]
+

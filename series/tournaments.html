@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tournaments | Caldamere Series</title>
+  
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/css/styles.css">
@@ -11,7 +12,7 @@
 <body>
   <header class="site-header">
     <div class="container nav-container">
-      <a href="/" class="brand">
+      <a href="/" class="brand" aria-label="Caldamere Home">
         <img src="/images/caldamere-with-c.png" alt="Caldamere" class="brand-logo-nav">
       </a>
       <ul class="nav-list">
@@ -22,6 +23,10 @@
         <li><a href="/series/faq.html">FAQ</a></li>
       </ul>
       <div class="nav-cta">
+        <div class="telemetry-tag">
+          <span class="pulse-dot"></span>
+          <span id="utc-clock">--:--:-- ET</span>
+        </div>
         <a href="/series/tournaments.html" class="btn btn-primary">View tournaments</a>
       </div>
       <button class="menu-btn" aria-label="Toggle navigation">
@@ -35,33 +40,40 @@
       <div class="container">
         <div class="hero-label">Tournament Schedule</div>
         <h1>Event Registrations</h1>
-        <p>No tournament is currently open for active registration. New competition dates will be published following engine stress-testing.</p>
+        <p id="schedule-subtitle">Loading current series telemetry...</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
+        <!-- Dynamic Table Container -->
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>Event Identifier</th>
+                <th>Event Name</th>
                 <th>Window / Dates</th>
                 <th>Eligible Instruments</th>
                 <th>Entry Capital</th>
-                <th>Registration Status</th>
+                <th>Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="tournaments-table-body">
               <tr>
-                <td><strong>Series Launch Alpha</strong></td>
-                <td>To be announced</td>
-                <td>Equity Index Futures (ES / NQ)</td>
-                <td>Free ($0)</td>
-                <td><span class="badge badge-dim">Upcoming</span></td>
+                <td colspan="5" style="text-align: center; color: var(--text-dim); padding: 2rem;">
+                  Loading schedule...
+                </td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <!-- Empty State Container (Displayed if array is empty) -->
+        <div id="no-tournaments-card" class="card" style="display: none; text-align: center; margin-top: 1.5rem; padding: 3rem 2rem;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">No Active Competitions Open</h3>
+          <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">
+            No tournaments are open for registration at this moment. New dates and sandbox parameters will appear here as soon as they are scheduled.
+          </p>
         </div>
       </div>
     </section>
@@ -74,7 +86,9 @@
           <div style="margin-bottom: 1.25rem;">
             <img src="/images/caldameregroup.png" alt="Caldamere Group" class="brand-logo-footer">
           </div>
-          <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 320px;">Caldamere develops structured market competitions and practical projects for people who engage with financial markets.</p>
+          <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 320px;">
+            Caldamere develops structured market competitions and practical projects for people who engage with financial markets.
+          </p>
         </div>
         <div class="footer-col">
           <h4>Series</h4>
@@ -107,6 +121,63 @@
       </div>
     </div>
   </footer>
+
   <script src="/js/main.js"></script>
+  
+  <!-- Dynamic Tournament Loader Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const tbody = document.getElementById('tournaments-table-body');
+      const emptyCard = document.getElementById('no-tournaments-card');
+      const subtitle = document.getElementById('schedule-subtitle');
+
+      try {
+        const response = await fetch('/data/tournaments.json?v=' + Date.now());
+        if (!response.ok) throw new Error('Failed to load tournaments configuration');
+        
+        const tournaments = await response.json();
+
+        if (!tournaments || tournaments.length === 0) {
+          tbody.parentElement.style.display = 'none';
+          emptyCard.style.display = 'block';
+          subtitle.textContent = 'No tournament is currently open for active registration.';
+          return;
+        }
+
+        subtitle.textContent = `Showing ${tournaments.length} scheduled event${tournaments.length > 1 ? 's' : ''} across active series modules.`;
+        tbody.innerHTML = '';
+
+        tournaments.forEach(item => {
+          const row = document.createElement('tr');
+          
+          let badgeClass = 'badge-dim';
+          if (item.status.toLowerCase() === 'open' || item.status.toLowerCase() === 'live') {
+            badgeClass = '';
+          }
+
+          row.innerHTML = `
+            <td>
+              <strong>${item.name}</strong>
+              ${item.registrationUrl ? `<br><a href="${item.registrationUrl}" style="color: var(--accent-gold); font-size: 0.8rem; text-decoration: underline;">Direct Registration &rarr;</a>` : ''}
+            </td>
+            <td>${item.dates}</td>
+            <td style="font-family: var(--font-mono); font-size: 0.82rem;">${item.instruments}</td>
+            <td>${item.entryFee}</td>
+            <td><span class="badge ${badgeClass}">${item.status}</span></td>
+          `;
+          tbody.appendChild(row);
+        });
+
+      } catch (err) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" style="text-align: center; color: var(--accent-red); padding: 2rem;">
+              Unable to load tournament schedule telemetry.
+            </td>
+          </tr>
+        `;
+      }
+    });
+  </script>
 </body>
 </html>
