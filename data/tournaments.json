@@ -1,22 +1,31 @@
 [
-  {
-    "id": "launch-alpha",
-    "name": "Series Launch Alpha",
-    "dates": "August 2026",
-    "instruments": "Equity Index Futures (ES / NQ)",
-    "entryFee": "$0 (Free)",
-    "status": "Completed",
-    "registrationUrl": ""
-  },
-  {
-    "id": "macro-pilot",
-    "name": "Treasuries & Commodity Pulse",
-    "dates": "October 2026",
-    "instruments": "Treasuries & Commodities (ZN / CL / GC)",
-    "entryFee": "$0 (Free)",
-    "status": "Scheduled",
-    "registrationUrl": ""
-  },
+    {
+        "id": "launch-alpha",
+        "name": "Series Launch Alpha",
+        "dates": "August 2026",
+        "instruments": "Equity Index Futures (ES / NQ)",
+        "entryFee": "$0 (Free)",
+        "status": "Completed",
+        "registrationUrl": ""
+    },
+    {
+        "id": "macro-pilot",
+        "name": "Treasuries & Commodity Pulse",
+        "dates": "September 2026",
+        "instruments": "Treasuries & Commodities (ZN / CL / GC)",
+        "entryFee": "$0 (Free)",
+        "status": "Scheduled",
+        "registrationUrl": ""
+    },
+    {
+        "id": "bonds-elite",
+        "name": "Bonds Elite",
+        "dates": "October 2026",
+        "instruments": "Fixed Income Securities (TLT / IEF)",
+        "entryFee": "$0 (Free)",
+        "status": "Scheduled",
+        "registrationUrl": ""
+    },
     {
         "id": "crypto-frenzy",
         "name": "Crypto Frenzy",
