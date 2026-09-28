@@ -177,19 +177,6 @@
           tbody.appendChild(row);
         });
 
-          row.innerHTML = `
-            <td>
-              <strong>${item.name}</strong>
-              ${item.registrationUrl ? `<br><a href="${item.registrationUrl}" style="color: var(--accent-gold); font-size: 0.8rem; text-decoration: underline;">Direct Registration &rarr;</a>` : ''}
-            </td>
-            <td>${item.dates}</td>
-            <td style="font-family: var(--font-mono); font-size: 0.82rem;">${item.instruments}</td>
-            <td>${item.entryFee}</td>
-            <td><span class="badge ${badgeClass}">${item.status}</span></td>
-          `;
-          tbody.appendChild(row);
-        });
-
       } catch (err) {
         tbody.innerHTML = `
           <tr>
