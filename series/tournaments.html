@@ -137,22 +137,30 @@
         
         const tournaments = await response.json();
 
-        if (!tournaments || tournaments.length === 0) {
+        // Filter out comment entries if any exist
+        const validTournaments = tournaments.filter(item => item.name);
+
+        if (!validTournaments || validTournaments.length === 0) {
           tbody.parentElement.style.display = 'none';
           emptyCard.style.display = 'block';
           subtitle.textContent = 'No tournament is currently open for active registration.';
           return;
         }
 
-        subtitle.textContent = `Showing ${tournaments.length} scheduled event${tournaments.length > 1 ? 's' : ''} across active series modules.`;
+        subtitle.textContent = `Showing ${validTournaments.length} scheduled event${validTournaments.length > 1 ? 's' : ''} across active series modules.`;
         tbody.innerHTML = '';
 
-        tournaments.forEach(item => {
+        validTournaments.forEach(item => {
           const row = document.createElement('tr');
+          const statusLower = (item.status || '').toLowerCase().trim();
           
           let badgeClass = 'badge-dim';
-          if (item.status.toLowerCase() === 'open' || item.status.toLowerCase() === 'live') {
-            badgeClass = '';
+          if (statusLower === 'active' || statusLower === 'live' || statusLower === 'open') {
+            badgeClass = 'badge-status-active';      // Green
+          } else if (statusLower === 'scheduled' || statusLower === 'upcoming') {
+            badgeClass = 'badge-status-scheduled';   // Yellow
+          } else if (statusLower === 'completed' || statusLower === 'closed') {
+            badgeClass = 'badge-status-completed';   // Red
           }
 
           row.innerHTML = `
