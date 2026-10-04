@@ -27,7 +27,7 @@
           <span class="pulse-dot"></span>
           <span id="utc-clock">--:--:-- ET</span>
         </div>
-        <a href="/series/tournaments.html" class="btn btn-primary">View tournaments</a>
+        <a href="https://tournaments.caldamere.com" class="btn btn-primary">Enter Tournaments</a>
       </div>
       <button class="menu-btn" aria-label="Toggle navigation">
         <span></span><span></span>
@@ -41,6 +41,9 @@
         <div class="hero-label">Tournament Schedule</div>
         <h1>Event Registrations</h1>
         <p id="schedule-subtitle">Loading current series telemetry...</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="https://tournaments.caldamere.com" class="btn btn-primary">Go to Signup Portal &rarr;</a>
+        </div>
       </div>
     </section>
 
@@ -68,11 +71,11 @@
           </table>
         </div>
 
-        <!-- Empty State Container (Displayed if array is empty) -->
+        <!-- Empty State Container -->
         <div id="no-tournaments-card" class="card" style="display: none; text-align: center; margin-top: 1.5rem; padding: 3rem 2rem;">
           <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">No Active Competitions Open</h3>
           <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">
-            No tournaments are open for registration at this moment. New dates and sandbox parameters will appear here as soon as they are scheduled.
+            No tournaments are open for registration at this moment. You can still access your portal account at <a href="https://tournaments.caldamere.com" style="color: var(--accent-gold); text-decoration: underline;">tournaments.caldamere.com</a>.
           </p>
         </div>
       </div>
@@ -95,6 +98,7 @@
           <ul>
             <li><a href="/series/">Overview</a></li>
             <li><a href="/series/tournaments.html">Tournaments</a></li>
+            <li><a href="https://tournaments.caldamere.com">Registration Portal</a></li>
             <li><a href="/series/how-it-works.html">How it works</a></li>
             <li><a href="/series/rules.html">Rules</a></li>
           </ul>
@@ -124,7 +128,6 @@
 
   <script src="/js/main.js"></script>
   
-  <!-- Dynamic Tournament Loader Script -->
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
       const tbody = document.getElementById('tournaments-table-body');
@@ -136,8 +139,6 @@
         if (!response.ok) throw new Error('Failed to load tournaments configuration');
         
         const tournaments = await response.json();
-
-        // Filter out comment entries if any exist
         const validTournaments = tournaments.filter(item => item.name);
 
         if (!validTournaments || validTournaments.length === 0) {
@@ -155,19 +156,24 @@
           const statusLower = (item.status || '').toLowerCase().trim();
           
           let badgeClass = 'badge-dim';
+          let actionLink = item.registrationUrl || '';
+
           if (statusLower === 'active' || statusLower === 'live' || statusLower === 'open') {
-            badgeClass = 'badge-status-active';      // Green
-            row.classList.add('row-active');         // Row Highlight
+            badgeClass = 'badge-status-active';
+            row.classList.add('row-active');
+            if (!actionLink) {
+              actionLink = 'https://tournaments.caldamere.com';
+            }
           } else if (statusLower === 'scheduled' || statusLower === 'upcoming') {
-            badgeClass = 'badge-status-scheduled';   // Yellow
+            badgeClass = 'badge-status-scheduled';
           } else if (statusLower === 'completed' || statusLower === 'closed') {
-            badgeClass = 'badge-status-completed';   // Red
+            badgeClass = 'badge-status-completed';
           }
 
           row.innerHTML = `
             <td>
               <strong>${item.name}</strong>
-              ${item.registrationUrl ? `<br><a href="${item.registrationUrl}" style="color: var(--accent-gold); font-size: 0.8rem; text-decoration: underline;">Direct Registration &rarr;</a>` : ''}
+              ${actionLink ? `<br><a href="${actionLink}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-size: 0.8rem; font-weight: 600; text-decoration: underline;">Sign Up / Enter &rarr;</a>` : ''}
             </td>
             <td>${item.dates}</td>
             <td style="font-family: var(--font-mono); font-size: 0.82rem;">${item.instruments}</td>
